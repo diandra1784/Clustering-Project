@@ -8,6 +8,7 @@ This project is about analyzing each ingredient’s macronutrients to fit the cu
 This dataset contains information on different food ingredients, such as their weight, calories, fat, sugar level, and food color.
 
 **Steps in the Clustering Process**
+
 **1. Load Data**
 We load the dataset using PySpark, ensuring that the data is correctly read and structured.
 
