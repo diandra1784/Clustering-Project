@@ -14,11 +14,13 @@ We load the dataset using PySpark, ensuring that the data is correctly read and 
 df_train = spark.read.csv("Dataset.csv", header=True, inferSchema=True)
 df_train.show()
 
+
 **2. Select Features**
 We select relevant features from the dataset: weight, calories, and fat, which are critical for defining ingredient healthiness. Features selection is crucial as it will determine the final outcome.
 
 df_train = df_train.select("weight", "calories", "fat")
 df_train.show()
+
 
 **3. Data Cleaning**
 Missing data is handled by dropping rows with null values, ensuring clean data for further processing.
@@ -34,6 +36,7 @@ df_train = df_train.withColumn("calories", regexp_replace(df_train["calories"], 
 df_train = df_train.withColumn("fat", regexp_replace(df_train["fat"], " gr", "").cast("int"))
 df_train.show()
 
+
 **5. Data Normalization**
 Before applying K-Means, it’s important to normalize the data so that all features contribute equally to the clustering model. We use StandardScaler for normalization.
 
@@ -42,12 +45,14 @@ scaler = StandardScaler(inputCol="Vector", outputCol="features")
 df_train = scaler.fit(df_train).transform(df_train)
 df_train.show()
 
+
 **6. Generate Model**
 We apply the K-Means algorithm with k=2 to generate the clustering model, which will divide the ingredients into two clusters.
 
 kmeans = KMeans().setK(2)
 model = kmeans.fit(df_train).transform(df_train)
 df_train.show()
+
 
 **7. Visualization**
 To visualize the clustering, we use Matplotlib to plot the data. The colors represent the clusters formed by the K-Means model.
@@ -58,6 +63,7 @@ plt.xlabel("Calories")
 plt.ylabel("Fat")
 plt.title("K-Means Clustering (Calories vs Fat)")
 plt.show()
+
 
 # Analysis and Conclusion
 K-Means clustering was applied to group ingredients based on calories, fat, and weight, with k=2 representing two clusters that could be interpreted as “healthy” and “not healthy,” though these labels are not explicit.
