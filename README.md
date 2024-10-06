@@ -67,12 +67,10 @@ plt.show()
 
 
 # Analysis and Conclusion
-K-Means clustering was applied to group ingredients based on calories, fat, and weight, with k=2 representing two clusters that could be interpreted as “healthy” and “not healthy,” though these labels are not explicit.
+Based on the clustering results, it can be observed that the food ingredients exhibit various health levels. The analysis revealed the following patterns:
+- Low Calories but High Fat: Ingredients in this category indicating that while they may not contribute significantly to overall calorie intake, they may contain unhealthy fat levels.
+- Low Fat but High Calories: Conversely, some ingredients are low in fat but have high calorie counts, suggesting that they could still contribute to excessive calorie consumption even if they appear healthier due to lower fat content.
+- Low Calories and Low Fat: This cluster contains ingredients that are generally regarded as healthy options, as they provide lower calorie and fat content.
+- High Calories and High Fat: Ingredients in this category are typically considered unhealthy and should be consumed sparingly.
 
-The choice of features affects clustering outcomes:
-Using calories, fat, and weight created more defined clusters.
-Including sugar levels led to more overlap between clusters, reducing clarity.
-
-The clusters, visualized in yellow and purple, group ingredients by caloric and fat content. However, without labeled data, we can't definitively interpret the healthiness of each cluster, a common limitation of unsupervised methods like K-Means.
-
-For conclusion, Clustering highlights patterns in nutrient data but doesn't provide a direct answer to whether ingredients are "healthy." A classification model with labeled data would be better suited for answering FitFut’s question on healthiness. K-Means offers valuable insights but is just a starting point.
+But keep in mind that high-fat or high-calorie foods are not always unhealthy. It depends on the type of fat—healthy fats like unsaturated fats (from avocados, nuts, fish) are good for heart health, while excessive saturated and trans fats are linked to risks. Calorie needs also vary, for example, athletes or people with high energy demands require more calories. A balanced diet with proper nutrients like fiber, vitamins, and minerals is essential. So, fat or calorie content alone doesn't determine if food is unhealthy.
